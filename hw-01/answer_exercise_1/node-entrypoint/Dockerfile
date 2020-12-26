@@ -10,4 +10,4 @@ RUN npm install
 
 EXPOSE 3003
 
-ENTRYPOINT ["node", "app.js"]
+ENTRYPOINT ["npm", "start"]
