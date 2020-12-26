@@ -53,13 +53,13 @@ CMD
 
   - Check
 
-    1. docker ps
+   1. docker ps
       	- vemos nuestro contenedor corriendo
-    2. curl localhost:3001/
+   2. curl localhost:3001/
       	- vemos el mensaje Hello World!
-    3. docker exec -it node-app-container-1 sh > ps fax
+   3. docker exec -it node-app-container-1 sh > ps fax
       	- vemos que está corriendo el server
-    4. docker run -d -p 3002:3000 --name node-app-container-2 node-app:1.0 sh > ps fax
+   4. docker run -d -p 3002:3000 --name node-app-container-2 node-app:1.0 sh > ps fax
       	- sobreescribimos el CMD definido en el Dockerfile por sh y vemos que ya no está corriendo el server
 
 
@@ -96,15 +96,15 @@ ENTRYPOINT
 
   - Check
   
-    1. docker ps
+   1. docker ps
       	- vemos nuestro contenedor corriendo
-    2. curl localhost:3003/
+   2. curl localhost:3003/
       	- vemos el mensaje Hello World!
-    3. docker exec -it node-app-container-3 sh > ps fax
+   3. docker exec -it node-app-container-3 sh > ps fax
       	- vemos que está corriendo el server
-    4. docker run -d -p 3004:3003 --name node-app-container-4 node-app:2.0 sh > no such file or directory
+   4. docker run -d -p 3004:3003 --name node-app-container-4 node-app:2.0 sh > no such file or directory
       	- comprobamos que no podemos ejecutar con sh.
-    5. Si modificásemos el Dockerfile pasando de ENTRYPOINT ["node", "app.js"] a ENTRYPOINT ["node"] y volviésemos a construir una imagen node-app:3.0:
+   5. Si modificásemos el Dockerfile pasando de ENTRYPOINT ["node", "app.js"] a ENTRYPOINT ["node"] y volviésemos a construir una imagen node-app:3.0:
       	- Al hacer _docker run -d -p 3005:3003 --name node-app-container-5 node-app:3.0 app.js_, se iniciaría el contenedor ejecutando el comando _node_ con _app.js_ como argumento (_app.js_ es un archivo que tiene que estar dentro del contenedor).w
       	- Esto es útil, por ejemplo, para no tener que instalar en tu máquina múltiples versiones de node; podemos tener varios contenedores con diferentes versiones, corriendo con node y pasándole nosotros como argumento nuestro script.
 
@@ -129,13 +129,13 @@ CMD
   ~~~
   docker run --name hello-container-1 hello-app:1.0
   ~~~
-  // _Hello La Salle!_
+  output: _Hello La Salle!_
 
   - Play
   ~~~
   docker run --name hello-app-container-2 hello-app:1.0 echo "Hello 2021!"
   ~~~
-  // _Hello 2021!_
+  output: _Hello 2021!_
 
   Vemos que hemos sobreescrito el  _Hello La Salle!_
 
@@ -157,13 +157,13 @@ ENTRYPOINT
   ~~~
   docker run --name hello-container-3 hello-app:2.0
   ~~~
-  // _Hello La Salle!_
+  output: _Hello La Salle!_
 
   - Play
   ~~~
   docker run --name hello-container-4 hello-app:2.0 "Hello 2021!"
   ~~~
-  // _Hello La Salle! Hello 2021!_
+  output: _Hello La Salle! Hello 2021!_
 
   Vemos que se ejecuta el ENTRYPOINT definido en el Dockerfile pero se le añade un argumento nuevo, no se sobreescribe.
 
