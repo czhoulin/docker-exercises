@@ -59,7 +59,7 @@ CMD
    4. docker run -d -p 3002:3000 --name node-app-container-2 node-app:1.0 node other.js
       	- sobreescribimos el CMD definido en el Dockerfile por sh y vemos que ya no arranca con app.js sino con other.js y se ve el mensaje _Bye World!_
       	
-   ![image](./answer_exercise_1/images/screenshot_1.png)
+   ![image](./images/screenshot_1.png)
 
 
 ENTRYPOINT
@@ -101,13 +101,13 @@ ENTRYPOINT
    4. docker run -d -p 3004:3003 --name node-app-container-4 node-app:2.0 node other.js 
       	- vemos que no se sobreescribe el comando "npm start" definido como entrypoint de la aplicación.
       	
-   ![image](./answer_exercise_1/images/screenshot_2.png)
+   ![image](./images/screenshot_2.png)
    
    5. Si modificásemos el Dockerfile pasando de ENTRYPOINT ["npm", "start"] a ENTRYPOINT ["node"] y volviésemos a construir una imagen node-app:3.0:
       	- Al hacer _docker run -d -p 3005:3003 --name node-app-container-5 node-app:3.0 app.js_, se iniciaría el contenedor ejecutando el comando _node_ con _app.js_ como argumento (_app.js_ es un archivo que tiene que estar dentro del contenedor).
       	- Esto es útil, por ejemplo, para no tener que instalar en tu máquina múltiples versiones de node; podemos tener varios contenedores con diferentes versiones, corriendo con node y pasándole nosotros como argumento nuestro script.
       	
-   ![image](./answer_exercise_1/images/screenshot_3.png)
+   ![image](./images/screenshot_3.png)
 
 
 #### B. hello
@@ -140,7 +140,7 @@ CMD
 
   Vemos que hemos sobreescrito el  _Hello La Salle!_
   
-  ![image](./answer_exercise_1/images/screenshot_4.png)
+  ![image](./images/screenshot_4.png)
 
 
 ENTRYPOINT
@@ -170,7 +170,7 @@ ENTRYPOINT
 
   Vemos que se ejecuta el ENTRYPOINT definido en el Dockerfile pero se le añade un argumento nuevo, no se sobreescribe.
   
-  ![image](./answer_exercise_1/images/screenshot_5.png)
+  ![image](./images/screenshot_5.png)
 
 
 ## Summary

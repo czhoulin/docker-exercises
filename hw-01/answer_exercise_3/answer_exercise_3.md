@@ -44,8 +44,8 @@ curl http://localhost:8080/index.html
 
 Si se edita el index.html, se detiene el contenedor y se vuelve a arrancar, se podrá comprobar que no se han perdido las modificaciones.
 
-![image](./answer_exercise_3/images/screenshot_1.png)
-![image](./answer_exercise_3/images/screenshot_2.png)
-![image](./answer_exercise_3/images/screenshot_3.png)
-![image](./answer_exercise_3/images/screenshot_4.png)
+![image](./images/screenshot_1.png)
+![image](./images/screenshot_2.png)
+![image](./images/screenshot_3.png)
+![image](./images/screenshot_4.png)
 

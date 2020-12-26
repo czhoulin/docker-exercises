@@ -49,7 +49,7 @@ RUN tar -xzf /carpeta/paquete.tar.gz -C usr/paquete \
 
 Ejemplo en carpeta _add-1_:
 
-![image](./answer_exercise_2/images/screenshot_1.png)
+![image](./images/screenshot_1.png)
 
 Sería mejor optar por curl o wget:
 
@@ -62,8 +62,8 @@ RUN curl http://ejemplo.com/paquete.tar.gz \
 
 Ejemplo en carpeta _add-2_:
 
-![image](./answer_exercise_2/images/screenshot_2.png)
-![image](./answer_exercise_2/images/screenshot_3.png)
+![image](./images/screenshot_2.png)
+![image](./images/screenshot_3.png)
 
 
 
