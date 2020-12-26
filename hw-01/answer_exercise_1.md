@@ -107,7 +107,7 @@ ENTRYPOINT
       	- Al hacer _docker run -d -p 3005:3003 --name node-app-container-5 node-app:3.0 app.js_, se iniciaría el contenedor ejecutando el comando _node_ con _app.js_ como argumento (_app.js_ es un archivo que tiene que estar dentro del contenedor).
       	- Esto es útil, por ejemplo, para no tener que instalar en tu máquina múltiples versiones de node; podemos tener varios contenedores con diferentes versiones, corriendo con node y pasándole nosotros como argumento nuestro script.
       	
-    ![image](./answer_exercise_1/images/screenshot_3.png)
+   ![image](./answer_exercise_1/images/screenshot_3.png)
 
 
 #### B. hello
