@@ -22,22 +22,23 @@ _(archivos en carpetas node-cmd y node-entrypoint)_
 
 CMD
   - Dockerfile
-    ~~~
-      FROM node:alpine3.10
+  ~~~
+    FROM node:alpine3.10
 
-      RUN apk update
+    RUN apk update
 
-      WORKDIR /app
+    WORKDIR /app
 
-      COPY node-app /app
+    COPY node-app /app
 
-      RUN npm install
+    RUN npm install
 
-      EXPOSE 3000
+    EXPOSE 3000
 
-      CMD ["node", "app.js"]
-
-      NOTE: idealmente sería CMD ["npm", "start"] pero para el ejemplo pasaremos directamente el comando node con el parámetro app.js.
+    CMD ["node", "app.js"]
+  ~~~
+  ~~~
+    NOTE: idealmente sería CMD ["npm", "start"] pero para el ejemplo pasaremos directamente el comando node con el parámetro app.js.
   ~~~
 
   - Build
@@ -78,7 +79,8 @@ ENTRYPOINT
     EXPOSE 3003
 
     ENTRYPOINT ["node", "app.js"]
-
+  ~~~
+  ~~~
     NOTE: idealmente sería ENTRYPOINT ["npm", "start"] pero para el ejemplo pasaremos directamente el comando node con el parámetro app.js.
   ~~~
 
@@ -182,4 +184,6 @@ ENTRYPOINT
   - ENTRYPOINT ["comando", "parámetro1", "parámetro2"] (_exec form_ - preferible)
   - ENTRYPOINT comando parámetro1 parámetro2 (_shell form_)
 -	Ejemplo de contexto de uso: para subir a producción.
+
+
 
