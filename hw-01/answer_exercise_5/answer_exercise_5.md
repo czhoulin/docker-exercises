@@ -54,3 +54,67 @@ services:
 ~~~
 
 ## Answer
+
+DOCKER-COMPOSE
+~~~
+version: '3.6'
+
+services:
+    elasticsearch:
+      image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3
+      container_name: elasticsearch-01
+      ports:
+        - 9200:9200
+        - 9300:9300
+      environment:
+        - discovery.type=single-node
+      networks:
+        - elastic
+
+    kibana:
+      image: docker.elastic.co/kibana/kibana:7.9.3
+      container_name: kibana-01
+      ports:
+        - "5601:5601"
+      environment:
+        - ELASTICSEARCH_HOST=elasticsearch
+        - ELASTICSEARCH_PORT=9200
+      networks:
+        - elastic
+      depends_on:
+        - elasticsearch
+
+networks:
+  elastic:
+    driver: bridge 
+~~~
+
+RUN
+~~~
+docker-compose -f docker-compose.yaml up
+~~~
+
+CHECK
+~~~
+http://localhost:5601
+~~~
+
+_Try our simple data_: 
+
+![image](./images/screenshot_1.png)
+
+_Add data_:
+
+![image](./images/screenshot_2.png)
+
+_View data_ > _Dashboard_:
+
+![image](./images/screenshot_3.png)
+
+Resultado:
+
+![image](./images/screenshot_4.png)
+
+~~~
+NOTE: Como buena práctica, se podrían limitar los recursos.
+~~~
