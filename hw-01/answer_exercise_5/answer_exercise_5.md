@@ -61,7 +61,7 @@ version: '3.6'
 
 services:
     elasticsearch:
-      image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3
+      image: elasticsearch:7.9.3
       container_name: elasticsearch-01
       ports:
         - 9200:9200
@@ -72,7 +72,7 @@ services:
         - elastic
 
     kibana:
-      image: docker.elastic.co/kibana/kibana:7.9.3
+      image: kibana:7.9.3
       container_name: kibana-01
       ports:
         - "5601:5601"
@@ -116,5 +116,18 @@ Resultado:
 ![image](./images/screenshot_4.png)
 
 ~~~
-NOTE: Como buena práctica, se podrían limitar los recursos.
+NOTE 1:
+  Existen imágenes oficiales de elasticsearch y kibana en Docker Hub, alternativamente también están en docker.elastic.co
+  
+NOTE 2: 
+  Como prueba de concepto, se ha creado un docker-compose.yaml mínimo, pero como ejercicio y buena práctica, se podrían también limitar los recursos añadiendo a cada servicio (unidades de ejemplo): 
+
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 500M
+          reservations:
+            cpus: '0.50'
+            memory: 200M
 ~~~
