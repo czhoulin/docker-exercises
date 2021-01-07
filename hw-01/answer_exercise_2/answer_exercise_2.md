@@ -12,7 +12,7 @@ ADD [origen] [destino]
 COPY [origen] [destino]
 ~~~~
 
-Cronológicamente, ADD es una intrucción que forma parte de Docker desde los inicios. Además de permitir copiar archivos del contexto de construcción, permite usar una URL como el parámetro de [origen]; el archivo se descarga de la URL especificada y se copia en el [destino]:
+Cronológicamente, ADD es una instrucción que forma parte de Docker desde los inicios. Además de permitir copiar archivos del contexto de construcción, permite usar una URL como el parámetro de [origen]; el archivo se descarga de la URL especificada y se copia en el [destino]:
 
 ~~~~
 Caso A: ADD http://ejemplo.com/descarga.cs /carpeta/archivo.cs
