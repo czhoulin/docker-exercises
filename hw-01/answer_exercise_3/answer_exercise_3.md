@@ -15,9 +15,9 @@ HOMEWORK 1
 docker volume create static_content
 ~~~~
 - Creamos el volumen. Existen tres tipos de docker volumes:
- - Host volumes. El usuario decide en qué directorio del host se crea el volumen ---> _docker run -v [host directory]:[container directory]_
- - Anonymous volumes. Creados automáticamente por Docker, sin necesidad de saber el host path ---> _docker run -v [container directory]_
- - Named volumes. Como los anónimos pero especificando el nombre de la carpeta (nuestro caso) --> _docker run -v [name]:[container directory]_
+  - Host volumes. El usuario decide en qué directorio del host se crea el volumen ---> _docker run -v [host directory]:[container directory]_
+  - Anonymous volumes. Creados automáticamente por Docker, sin necesidad de saber el host path ---> _docker run -v [container directory]_
+  - Named volumes. Como los anónimos pero especificando el nombre de la carpeta (nuestro caso) --> _docker run -v [name]:[container directory]_
 
 ~~~~
 docker volume inspect static_content
