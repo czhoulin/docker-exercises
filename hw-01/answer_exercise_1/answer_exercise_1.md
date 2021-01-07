@@ -7,7 +7,7 @@ Indica la diferencia entre el uso de la instrucción CMD y ENTRYPOINT
 
 A partir de un Dockerfile podemos construir una imagen. En el mismo podemos definir un comando a ejecutar por defecto para cuando se arranquen contenedores a partir de dicha imagen. Tanto CMD como ENTRYPOINT sirven para esto.
 
-Con **CMD** podemos sobreescribir el comando por defecto especificando otro por CLI al iniciar el contenedor. Esto está bien si se busca parametrizar el punto de entrada y dar más flexibilidad al usuario de la imagen; tener un comando por defecto fácilmente sobreescribible puede ser lo deseado, por ejemplo, en fases de desarrollo (es más fácil debuggar).
+Con **CMD** podemos sobreescribir el comando por defecto especificando otro por CLI al iniciar el contenedor. Esto está bien si se busca parametrizar el punto de entrada y dar más flexibilidad al usuario de la imagen; tener un comando por defecto fácilmente sobreescribible puede ser lo deseado, por ejemplo, en fases de desarrollo (es más fácil _debuggar_).
 
 Con **ENTRYPOINT** no se sobreescribe el comando por defecto (a no ser que se añada el flag --entrypoint.), aunque se le pueden añadir variables como argumentos. Es preferible cuando queremos tratar el contenedor como un ejecutable; queremos que haya un comando que siempre se ejecute y que no sea fácilmente modificable por el usuario. Por ejemplo, podemos tener una herramienta implementada como un script en C# y no queremos que el usuario se tenga que preocupar de instalar versiones o dependencias específicas. Lo podemos empaquetar todo en una imagen con un ENTRYPOINT que referencie a nuestro script. Con CMD se podría hacer igual, pero de esta otra manera queda más claro que el contenedor está pensado para ejecutarse con este comando concreto.
 
@@ -182,15 +182,15 @@ ENTRYPOINT
   - CMD ["comando","parámetro1","parámetro2"] (_exec form_ - preferible)
   - CMD ["parámetro1","parámetro2"] (para cuando se combina con ENTRYPOINT, define los parámetros por defecto que se añadirán después de lo definido en ENTRYPOINT)
   - CMD comando parámetro1 parámetro2 (_shell form_)
-- Ejemplo de contexto de uso: durante la fase de desarrollo (más fácil debugar)
+- Un ejemplo de contexto de uso: durante la fase de desarrollo (más fácil _debuggar_)
 
 **ENTRYPOINT**
-- Como CMD, instruction, permite definir un comando por defecto que se ejecturá cuando se arranque el contenedor. Cualquier otra especificación por CLI se interpretará como argumento extra al comando definido.
+- Como CMD, Entrypoint permite definir un comando por defecto que se ejecturá cuando se arranque el contenedor. Cualquier otra especificación por CLI se interpretará como argumento extra al comando definido.
 - Solo puede haber uno.
 - Formas de definición:
   - ENTRYPOINT ["comando", "parámetro1", "parámetro2"] (_exec form_ - preferible)
   - ENTRYPOINT comando parámetro1 parámetro2 (_shell form_)
--	Ejemplo de contexto de uso: para subir a producción.
+-	Un ejemplo de contexto de uso: para subir a producción.
 
 
 
