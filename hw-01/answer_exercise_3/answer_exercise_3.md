@@ -42,7 +42,14 @@ curl http://localhost:8080/index.html
 ~~~~
 - Vemos el contenido de index.html
 
-Si se edita el index.html, se detiene el contenedor y se vuelve a arrancar, se podrá comprobar que no se han perdido las modificaciones.
+~~~~
+docker exec -it volume-exercise sh
+cd usr/share/nginx/html
+apt-get update
+apt-get install nano
+nano index.html
+~~~~
+- Si se edita el index.html, se detiene el contenedor y se vuelve a arrancar, se podrá comprobar que no se han perdido las modificaciones.
 
 ![image](./images/screenshot_1.png)
 ![image](./images/screenshot_2.png)
