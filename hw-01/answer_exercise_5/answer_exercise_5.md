@@ -75,7 +75,7 @@ services:
       image: kibana:7.9.3
       container_name: kibana-01
       ports:
-        - "5601:5601"
+        - 5601:5601
       environment:
         - ELASTICSEARCH_HOST=elasticsearch
         - ELASTICSEARCH_PORT=9200
@@ -117,7 +117,7 @@ Resultado:
 
 ~~~
 NOTE 1:
-  Existen imágenes oficiales de elasticsearch y kibana en Docker Hub, alternativamente también están en docker.elastic.co
+  Existen imágenes oficiales de elasticsearch y kibana en Docker Hub; también están en docker.elastic.co
   
 NOTE 2: 
   Como prueba de concepto, se ha creado un docker-compose.yaml mínimo, pero como ejercicio y buena práctica, se podrían también limitar los recursos añadiendo a cada servicio (unidades de ejemplo): 
