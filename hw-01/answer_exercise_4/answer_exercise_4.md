@@ -57,24 +57,19 @@ CMD ["npm", "start"]
 
 - Exponemos el 8080 como puerto de la aplicación.
 
-- De acuerdo con el enunciado, definimos el healthcheck con las opciones <sup>(NOTE 1)</sup> requeridas
+- De acuerdo con el enunciado, definimos el healthcheck con las opciones <sup>(NOTE)</sup> requeridas
 
-- Con el comando _curl_ podemos verificar que la apliación está corriendo haciendo la petición a localhost:8080 (al iniciar el contenedor mapearemos el puerto a nuestro 8080). Si la petición devuelve un 200, obtendremos un exit code 0; si la aplicación cae, el exit code será 1 <sup>(NOTE 2)</sup>.
+- Con el comando _curl_ podemos verificar que la apliación está corriendo haciendo la petición a localhost:8080 (al iniciar el contenedor mapearemos el puerto a nuestro 8080). Si la petición devuelve un 200, obtendremos un exit code 0; si la aplicación cae, el exit code será 1.
 
 - Definimos el arranque de la aplicación como el comando de entrada por defecto.
 
 
 
-  <sup>NOTE 1</sup> El comando HEALTHCHECK se puede usar con cuatro opciones:
+  <sup>NOTE</sup> El comando HEALTHCHECK se puede usar con cuatro opciones:
     - --interval=[segundos a esperar inicialmente antes de ejecutar el healthcheck y frecuencia en la que se ejecutarán las pruebas] (default: 30s)
     - --timeout=[segundos a esperar el exit code antes de declarar la prueba como fallida y app como unhealthy] (default: 30s)
     - --start-period=[segundos para esperar el arranque de la aplicación y no declarar como unhealthy en caso de retornar un exit code mayor que 0] (default: 0s)
     - --retries=[número de reintentos fallidos consecutivos tras los cuales se declara el contenedor como unhealthy] (default: 3)
-
-  <sup>NOTE 2</sup> Por documentación oficial de Docker:
-    - Exit code 0: success - the container is healthy and ready for use
-    - Exit 1: unhealthy - the container is not working correctly
-    - Exit 2: reserved - do not use this exit code
 
 
 BUILD
@@ -95,7 +90,7 @@ CHECK
 
 - El _status_ inicialmente es _Up [tiempo]_. Lleva un tiempo iniciar el healthcheck y ver si la aplicación está healthy o unhealthy.
 
-- Podemos ir revisando el status con docker ps e inspeccionar el contenedor con docker inspect [containerName/containerID]
+- Podemos ir revisando el status con _docker ps_ e inspeccionar el contenedor con _docker inspect [containerName/containerID]_
 
 
 ### B. Unhealthy example
